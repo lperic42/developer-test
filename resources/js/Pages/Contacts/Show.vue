@@ -1,3 +1,10 @@
+<script setup>
+import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import { Link, Head } from '@inertiajs/vue3';
+
+const name = '' // placeholder value
+</script>
+
 <template>
     <Head :title="name" />
 
@@ -31,17 +38,10 @@
                         </div>
                     </dl>
                     <div class="border-t border-gray-200 flex justify-end p-6">
-                        <InertiaLink :href="route('contacts.edit', contact.id)" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Edit</InertiaLink>
+                        <Link :href="route('contacts.edit', contact.id)" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Edit</Link>
                     </div>
                 </div>
             </div>
         </div>
     </BreezeAuthenticatedLayout>>
 </template>
-
-<script setup>
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import { InertiaLink, Head } from '@inertiajs/inertia-vue3';
-
-const name = '' // placeholder value
-</script>

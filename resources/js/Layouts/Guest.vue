@@ -1,6 +1,6 @@
 <script setup>
 import BreezeApplicationLogo from '@/Components/Breeze/ApplicationLogo.vue';
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>

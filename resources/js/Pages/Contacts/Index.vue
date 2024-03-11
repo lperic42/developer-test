@@ -1,10 +1,16 @@
+<script setup>
+import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import { Link, Head } from '@inertiajs/vue3';
+
+</script>
+
 <template>
     <Head title="Contacts" />
 
     <BreezeAuthenticatedLayout>
         <div class="mx-auto my-6 max-w-screen-xl">
             <div class="my-3 flex justify-end">
-                <InertiaLink :href="route('contacts.create')" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create Contact</InertiaLink>
+                <Link :href="route('contacts.create')" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create Contact</Link>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -34,10 +40,10 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <InertiaLink :href="route('contacts.show', contact.id)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">View</InertiaLink>
+                                        <Link :href="route('contacts.show', contact.id)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">View</Link>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <InertiaLink :href="route('contacts.edit', contact.id)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">Edit</InertiaLink>
+                                        <Link :href="route('contacts.edit', contact.id)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">Edit</Link>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -49,9 +55,3 @@
         </div>
     </BreezeAuthenticatedLayout>
 </template>
-
-<script setup>
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import { InertiaLink, Head } from '@inertiajs/inertia-vue3';
-
-</script>

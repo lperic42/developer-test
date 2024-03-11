@@ -4,7 +4,7 @@ import BreezeGuestLayout from '@/Layouts/Guest.vue';
 import BreezeInput from '@/Components/Breeze/Input.vue';
 import BreezeLabel from '@/Components/Breeze/Label.vue';
 import BreezeValidationErrors from '@/Components/Breeze/ValidationErrors.vue';
-import { Head, useForm } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 
 const props = defineProps({
     email: String,

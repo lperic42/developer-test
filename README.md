@@ -1,4 +1,4 @@
-# Really Simple Systems Developer Test
+# Spotler CRM Developer Test
 
 This test has been designed to allow us to see your Laravel and Vue knowledge.
 If you have any questions regarding this test you can email dev@reallysimplesystems.com, and we will answer any questions that you may have.
@@ -27,7 +27,8 @@ There  are a set of tests implemented for you to check your work against, you wi
 
 #### Database
 - Add ```owner_id``` as a foreign key to accounts table where ```owner_id === user.id```
-- Add ```account_id``` as a foreign key to contacts table that cascades when an account is deleted
+- Add ```account_id``` as a foreign key to contacts table
+- Add a unique index to the contacts table for the ```email``` column
 
 #### Models
 - Add an eloquent relationship to the ```User``` model for a user to have multiple accounts associated with it

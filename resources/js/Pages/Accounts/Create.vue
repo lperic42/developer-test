@@ -1,3 +1,10 @@
+<script setup>
+import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
+import {Link, Head} from '@inertiajs/vue3'
+
+const form = '' // placeholder value
+</script>
+
 <template>
     <Head title="Create Account" />
 
@@ -79,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="flex justify-end mt-6">
-                                <InertiaLink :href="route('accounts.index')" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</InertiaLink>
+                                <Link :href="route('accounts.index')" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</Link>
                                 <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create</button>
                             </div>
                         </form>
@@ -89,10 +96,3 @@
         </div>
     </BreezeAuthenticatedLayout>
 </template>
-
-<script setup>
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
-import {InertiaLink, Head} from '@inertiajs/inertia-vue3'
-
-const form = '' // placeholder value
-</script>

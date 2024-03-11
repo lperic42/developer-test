@@ -1,3 +1,3 @@
 <template>
-    <img src="/images/rss-full-logo.png" alt="RSS logo">
+    <img src="/images/logo.svg" alt="Spotler CRM logo">
 </template>

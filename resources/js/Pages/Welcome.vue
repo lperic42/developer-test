@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 defineProps({
     canLogin: Boolean,
@@ -31,7 +31,7 @@ defineProps({
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex flex-col justify-center pt-8 sm:justify-start sm:pt-0">
-                <img src="/images/rss-full-logo.png" alt="RSS logo" class="h-16 w-auto sm:h-20">
+                <img src="/images/logo.svg" alt="Spotler CRM logo" class="h-16 w-auto sm:h-20">
                 <h1 class="text-xl font-bold text-center mt-6">Developer Test</h1>
             </div>
         </div>
