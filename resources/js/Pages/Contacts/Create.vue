@@ -12,7 +12,7 @@ const form = useForm({
     email: '',
     phone: '',
     position: '',
-    account: {},
+    account_id: null,
 });
 
 function submit() {
@@ -89,7 +89,7 @@ function submit() {
                                 <div class="col-span-6">
                                     <label for="account" class="block text-sm font-medium text-gray-700">Account</label>
                                     <select
-                                        v-model="form.account.id"
+                                        v-model="form.account_id"
                                         id="account"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     >

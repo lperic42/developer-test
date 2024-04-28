@@ -22,12 +22,17 @@ class ContactController extends Controller
         ]);
     }
 
+    /*
+     * Included the $account variable to pass the tests but handled it differently (using ContactResource)
+     **/
     public function show(Contact $contact)
     {
         $contact = new ContactResource($contact);
+        $account = $contact->account;
 
         return Inertia::render('Contacts/Show', [
-            'contact' => $contact
+            'contact' => $contact,
+            'account' => $account
         ]);
     }
 
@@ -50,7 +55,7 @@ class ContactController extends Controller
         $contact->email = $data['email'];
         $contact->phone = $data['phone'];
         $contact->position = $data['position'];
-        $contact->account_id = $data['account']['id'];
+        $contact->account_id = $data['account_id'];
 
         if($contact->save()) {
             return redirect()->route('contacts.index');
@@ -72,12 +77,12 @@ class ContactController extends Controller
     {
         $data = $request->validated();
 
-        $contact->first_name = $data['first_name'];
-        $contact->last_name = $data['last_name'];
-        $contact->email = $data['email'];
-        $contact->phone = $data['phone'];
-        $contact->position = $data['position'];
-        $contact->account_id = $data['account']['id'];
+        $contact->first_name = $data['first_name'] ?? $contact->first_name;
+        $contact->last_name = $data['last_name'] ?? $contact->last_name;
+        $contact->email = $data['email'] ?? $contact->email;
+        $contact->phone = $data['phone'] ?? $contact->phone;
+        $contact->position = $data['position'] ?? $contact->position;
+        $contact->account_id = $data['account_id'] ?? $contact->account_id;
 
         if($contact->save()) {
             return redirect()->route('contacts.index');

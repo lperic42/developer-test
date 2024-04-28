@@ -13,7 +13,7 @@ const form = useForm({
     email: props.contact.email,
     phone: props.contact.phone,
     position: props.contact.position,
-    account: props.contact.account,
+    account_id: props.contact.account_id,
 });
 
 const name = props.contact.full_name // placeholder value
@@ -96,7 +96,7 @@ function destroy() {
                                 <div class="col-span-6">
                                     <label for="account" class="block text-sm font-medium text-gray-700">Account</label>
                                     <select
-                                        v-model="form.account.id"
+                                        v-model="form.account_id"
                                         id="account"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     >

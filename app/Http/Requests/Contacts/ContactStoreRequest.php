@@ -27,7 +27,7 @@ class ContactStoreRequest extends FormRequest
             'email' => 'string',
             'phone' => 'string',
             'position' => 'string',
-            'account' => 'array',
+            'account_id' => 'int',
         ];
     }
 }

@@ -26,11 +26,12 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware('auth')->group(function() {
+Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', function() {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
+    // Account routes
     Route::get('accounts', [AccountController::class, 'index'])
         ->name('accounts.index');
     Route::post('accounts', [AccountController::class, 'store'])
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function() {
     Route::delete('accounts/{account}', [AccountController::class, 'destroy'])
         ->name('accounts.destroy');
 
+    // Contact routes
     Route::get('contacts', [ContactController::class, 'index'])
         ->name('contacts.index');
     Route::post('contacts', [ContactController::class, 'store'])

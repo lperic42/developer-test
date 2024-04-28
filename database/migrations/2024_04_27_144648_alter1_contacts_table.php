@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('contacts', function (Blueprint $table) {
-            $table->bigInteger('account_id')->unsigned()->after('position');
+            $table->bigInteger('account_id')->unsigned()->nullable()->after('position');
 
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
         });

@@ -28,7 +28,7 @@ class AccountStoreRequest extends FormRequest
             'country' => 'string',
             'post_code' => 'string',
             'phone' => 'string',
-            'owner' => 'array',
+            'owner_id' => 'int',
         ];
     }
 }
