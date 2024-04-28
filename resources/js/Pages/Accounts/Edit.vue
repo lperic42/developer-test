@@ -1,7 +1,6 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
-import {Link, Head, useForm} from '@inertiajs/vue3'
-import Inertia from 'inertiajs/inertia'
+import {Link, Head, useForm, router} from '@inertiajs/vue3'
 
 const props = defineProps({
     account: Object,
@@ -20,6 +19,13 @@ const form = useForm({
 
 const usersList = props.users
 
+function submit() {
+    router.put(route('accounts.update', props.account.id), form)
+}
+
+function testing() {
+    router.delete(route('accounts.destroy', props.account.id))
+}
 </script>
 
 <template>
@@ -36,7 +42,7 @@ const usersList = props.users
                         </ul>
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <form>
+                        <form @submit.prevent="submit">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
@@ -51,11 +57,11 @@ const usersList = props.users
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="owner" class="block text-sm font-medium text-gray-700">Owner</label>
                                     <select
-                                        v-model="form.owner.name"
+                                        v-model="form.owner.id"
                                         id="owner"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     >
-                                        <option v-for="user in usersList.data"> {{ user.name }}</option>
+                                        <option v-for="user in usersList.data" :value="user.id"> {{ user.name }}</option>
                                     </select>
                                 </div>
 
@@ -110,12 +116,13 @@ const usersList = props.users
                                 </div>
                             </div>
                             <div class="flex justify-between mt-6">
-                                <Button
+                                <button
+                                    @click="testing"
                                     type="button"
                                     class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                                 >
                                     Delete
-                                </Button>
+                                </button>
                                 <div>
                                     <Link :href="route('accounts.index')" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</Link>
                                     <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>

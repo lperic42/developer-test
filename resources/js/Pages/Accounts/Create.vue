@@ -1,6 +1,7 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
 import {Link, Head, useForm} from '@inertiajs/vue3'
+import { router } from '@inertiajs/vue3'
 
 const props = defineProps({
     users: Object,
@@ -18,6 +19,9 @@ const form = useForm({
 
 const usersList = props.users
 
+function submit() {
+    router.post(route('accounts.store'), form)
+}
 </script>
 
 <template>
@@ -34,7 +38,7 @@ const usersList = props.users
                         </ul>
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <form>
+                        <form @submit.prevent="submit">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
@@ -49,11 +53,11 @@ const usersList = props.users
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="owner" class="block text-sm font-medium text-gray-700">Owner</label>
                                     <select
-                                        v-model="form.owner.name"
+                                        v-model="form.owner.id"
                                         id="owner"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     >
-                                        <option v-for="user in usersList.data"> {{ user.name }}</option>
+                                        <option v-for="user in usersList.data" :value="user.id">{{ user.name }}</option>
                                     </select>
                                 </div>
 
