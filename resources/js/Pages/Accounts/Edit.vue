@@ -23,7 +23,7 @@ function submit() {
     router.put(route('accounts.update', props.account.id), form)
 }
 
-function testing() {
+function destroy() {
     router.delete(route('accounts.destroy', props.account.id))
 }
 </script>
@@ -117,7 +117,7 @@ function testing() {
                             </div>
                             <div class="flex justify-between mt-6">
                                 <button
-                                    @click="testing"
+                                    @click="destroy"
                                     type="button"
                                     class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                                 >

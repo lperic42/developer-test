@@ -11,11 +11,20 @@ class Contact extends Model
 
     protected $guarded = [];
 
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'position',
+        'account',
+    ];
+
     public function getFullNameAttribute() {
         return $this->first_name . ' ' . $this->last_name;
     }
     public function account()
     {
-        return $this->belongsTo(Account::class);
+        return $this->belongsTo(Account::class, 'account_id');
     }
 }
