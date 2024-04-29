@@ -90,7 +90,7 @@ class AccountController extends Controller
         $account->country = $data['country'] ?? $account->country;
         $account->post_code = $data['post_code'] ?? $account->post_code;
         $account->phone = $data['phone'] ?? $account->phone;
-        $account->owner_id = $data['owner']['id'] ?? $account->owner_id;
+        $account->owner_id = $data['owner_id'] ?? $account->owner_id;
 
         if($account->save()) {
             return redirect()->route('accounts.index');
